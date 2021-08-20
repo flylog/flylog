@@ -1,20 +1,16 @@
 package main
 
 import (
-	"log"
-
 	"github.com/flylog/flylog"
 )
 
 func main() {
-	var i = 1
-	var j = 2
-	if j > i {
 
-		log2 := flylog.GetLogger()
-		log2.Debug("example flylog test")
-		log.Println()
-		log.Println("example flylog test2")
-
+	logs := flylog.GetLogger()
+	for i := 0; i < 100; i++ {
+		logs.Debug("example flylog test", i)
+		logs.Info("example lylog test2", i)
+		logs.Error("example lylog test2", i)
+		logs.Warn("example lylog test2", i)
 	}
 }
