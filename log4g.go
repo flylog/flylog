@@ -12,6 +12,7 @@ package flylog
 
 import (
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -76,5 +77,12 @@ func (l *Log4g) log(level Level, message ...interface{}) {
 			fmt.Sprint(message...),
 			fmt.Sprintf(" [%s] <%s> ", level.String(), Prefix()))
 		out.WriteMessage(fmt.Sprintln(layoutStr))
+
+		if level == Error {
+			panic(layoutStr)
+		}
+		if level == Fatal {
+			os.Exit(1)
+		}
 	}
 }
