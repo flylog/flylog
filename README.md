@@ -14,9 +14,9 @@ See this document at [GoDoc](https://pkg.go.dev/github.com/flylog/flylog)
 
 # ToDo
 
-- [] 增加日志输出到TCP支持。 
-- [] Console日志彩色输出由https://github.com/flylog/colorStyle支持开发中 
-- [] 日志异步缓存输出参考heka。 
-- [] 优化lylog.properties配置项,参考Log4j配置管理。
-- [] 日志输出格式自定义Formart 
-- [] 增加http访问日志参考nginx。
+- [ ] 增加日志输出到TCP支持。 
+- [ ] Console日志彩色输出由https://github.com/flylog/colorStyle支持开发中 
+- [ ] 日志异步缓存输出参考heka。 
+- [ ] 优化lylog.properties配置项,参考Log4j配置管理。
+- [ ] 日志输出格式自定义Formart 
+- [ ] 增加http访问日志参考nginx。
