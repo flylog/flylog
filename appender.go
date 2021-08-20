@@ -34,7 +34,7 @@ func (b *baseAppender) Layout(formart string, message ...interface{}) string {
 		}
 	}
 	msg := fmt.Sprint(message...)
-	return fmt.Sprintf("[%s] -- %s / %s", time.Now().Local().String(), src, msg)
+	return fmt.Sprintf("[%s] -- %s -- %s", time.Now().Local().Format("2006-01-01 01:01:01"), src, msg)
 }
 
 func (b *baseAppender) Filter(level Level) bool {
