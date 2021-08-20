@@ -10,7 +10,7 @@
 
 package flylog
 
-var GlobalConf Conf
+var globalFlyConf flyConf
 
 type Level int
 
@@ -23,7 +23,7 @@ const (
 	Fatal
 )
 
-const ConfFile = "flylog.properties"
+const flyPropertyFile = "flylog.properties"
 
 func (l Level) String() string {
 	switch l {

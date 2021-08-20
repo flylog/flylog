@@ -15,14 +15,14 @@ import (
 	"os"
 )
 
-func NewConsoleAppender() Appender {
-	return new(ConsoleAppender)
+func newConsoleAppender() appender {
+	return new(consoleAppender)
 }
 
-type ConsoleAppender struct {
-	*BaseAppender
+type consoleAppender struct {
+	*baseAppender
 }
 
-func (c *ConsoleAppender) WriteMessage(v string) {
+func (c *consoleAppender) WriteMessage(v string) {
 	io.WriteString(os.Stderr, v)
 }

@@ -19,15 +19,15 @@ type Logger interface {
 	Fatal(message ...interface{})
 }
 
-type LoggerFactory map[string]Logger
+type factory map[string]Logger
 
-var loggerFactory = make(LoggerFactory)
+var globalFactory = make(factory)
 
 func register(name string, l Logger) {
-	loggerFactory[name] = l
+	globalFactory[name] = l
 }
 
 func GetLogger() Logger {
-	name := GlobalConf.logframeName
-	return loggerFactory[name]
+	name := globalFlyConf.logframeName
+	return globalFactory[name]
 }

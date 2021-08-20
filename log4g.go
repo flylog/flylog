@@ -17,13 +17,13 @@ import (
 
 func init() {
 	logFrame := newLog4g()
-	if logFrame.Name() == GlobalConf.logframeName {
-		if len(GlobalConf.ConsoleAppender) > 0 {
-			logFrame.outs = append(logFrame.outs, NewConsoleAppender())
+	if logFrame.Name() == globalFlyConf.logframeName {
+		if len(globalFlyConf.ConsoleAppender) > 0 {
+			logFrame.outs = append(logFrame.outs, newConsoleAppender())
 		}
-		if len(GlobalConf.FileAppender) > 0 {
+		if len(globalFlyConf.FileAppender) > 0 {
 			now := time.Now().Format("2006-02-05_")
-			logFrame.outs = append(logFrame.outs, NewFileAppender(now+GlobalConf.FileAppender))
+			logFrame.outs = append(logFrame.outs, newFileAppender(now+globalFlyConf.FileAppender))
 		}
 	}
 	register(logFrame.Name(), logFrame)
@@ -35,7 +35,7 @@ func newLog4g() *Log4g {
 }
 
 type Log4g struct {
-	outs []Appender
+	outs []appender
 }
 
 func (l *Log4g) Name() string {

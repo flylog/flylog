@@ -16,16 +16,16 @@ import (
 	"time"
 )
 
-type Appender interface {
+type appender interface {
 	WriteMessage(v string)
 	Filter(level Level) bool
 	Layout(format string, message ...interface{}) string
 }
 
-type BaseAppender struct {
+type baseAppender struct {
 }
 
-func (b *BaseAppender) Layout(formart string, message ...interface{}) string {
+func (b *baseAppender) Layout(formart string, message ...interface{}) string {
 	src := ""
 	if GetLogLevel() < Info {
 		pc, _, lineno, ok := runtime.Caller(3)
@@ -37,8 +37,8 @@ func (b *BaseAppender) Layout(formart string, message ...interface{}) string {
 	return fmt.Sprintf("[%s] -- %s / %s", time.Now().Local().String(), src, msg)
 }
 
-func (b *BaseAppender) Filter(level Level) bool {
-	if level >= GlobalConf.logLevel {
+func (b *baseAppender) Filter(level Level) bool {
+	if level >= globalFlyConf.logLevel {
 		return true
 	}
 	return false

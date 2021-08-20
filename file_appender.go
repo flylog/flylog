@@ -16,18 +16,18 @@ import (
 	"os"
 )
 
-func NewFileAppender(fileName string) Appender {
-	fileAppender := new(FileAppender)
-	fileAppender.fileName = "logs/" + fileName
-	return fileAppender
+func newFileAppender(fileName string) appender {
+	fileAppend := new(fileAppender)
+	fileAppend.fileName = "logs/" + fileName
+	return fileAppend
 }
 
-type FileAppender struct {
-	*BaseAppender
+type fileAppender struct {
+	*baseAppender
 	fileName string
 }
 
-func (f *FileAppender) WriteMessage(v string) {
+func (f *fileAppender) WriteMessage(v string) {
 	_, err := os.Stat(f.fileName)
 	if os.IsNotExist(err) {
 		os.Mkdir("logs/", os.ModePerm)
