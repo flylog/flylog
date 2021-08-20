@@ -23,8 +23,9 @@ func init() {
 			logFrame.outs = append(logFrame.outs, newConsoleAppender())
 		}
 		if len(globalFlyConf.FileAppender) > 0 {
-			now := time.Now().Format("2006-02-05_")
-			logFrame.outs = append(logFrame.outs, newFileAppender(now+globalFlyConf.FileAppender))
+			now := time.Now().Format("2006-01-01")
+			fileName := now + "_" + globalFlyConf.FileAppender
+			logFrame.outs = append(logFrame.outs, newFileAppender(fileName))
 		}
 	}
 	register(logFrame.Name(), logFrame)

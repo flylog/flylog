@@ -66,7 +66,7 @@ func init() {
 
 	globalFlyConf.formart, isExist = p.Property("Formart")
 	if !isExist {
-		// log.Println("Formart is not exist")
+		log.Println("Formart is not exist")
 	}
 	globalFlyConf.ConsoleAppender, isExist = p.Property("ConsoleAppender")
 	if !isExist {
