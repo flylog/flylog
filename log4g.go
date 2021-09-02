@@ -13,6 +13,8 @@ package flylog
 import (
 	"fmt"
 	"time"
+
+	"github.com/flylog/colorstyle"
 )
 
 func init() {
@@ -75,7 +77,7 @@ func (l *Log4g) log(level Level, message ...interface{}) {
 		layoutStr := out.Layout(
 			Formart(),
 			fmt.Sprint(message...),
-			fmt.Sprintf(" [%s] <%s> ", level.String(), Prefix()))
+			fmt.Sprintf(" [%s] <%s> ", colorstyle.Blue(level.String()), Prefix()))
 		out.WriteMessage(fmt.Sprintln(layoutStr))
 
 		/* if level == Error {

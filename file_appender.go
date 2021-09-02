@@ -36,7 +36,7 @@ func (f *fileAppender) WriteMessage(v string) {
 	file, err := os.Create(f.fileName)
 	defer file.Close()
 	if err != nil {
-		fmt.Printf("os.Create %s failed: %v", file, err)
+		fmt.Printf("os.Create %s failed: %v", f.fileName, err)
 		return
 	}
 	io.WriteString(file, fmt.Sprintf("%s", v))
