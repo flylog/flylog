@@ -11,8 +11,11 @@
 package flylog
 
 import (
+	"fmt"
 	"io"
 	"os"
+	"runtime"
+	"time"
 )
 
 func newConsoleAppender() appender {
@@ -25,4 +28,16 @@ type consoleAppender struct {
 
 func (c *consoleAppender) WriteMessage(v string) {
 	io.WriteString(os.Stderr, v)
+}
+
+func (b *consoleAppender) Layout(formart string, message ...interface{}) string {
+	src := ""
+	if GetLogLevel() < Info {
+		pc, _, lineno, ok := runtime.Caller(3)
+		if ok {
+			src = fmt.Sprintf("%s:%d", runtime.FuncForPC(pc).Name(), lineno)
+		}
+	}
+	msg := fmt.Sprint(message...)
+	return fmt.Sprintf("[%s] -- %s -- %s", time.Now().Local().Format("2006-01-01 01:01:01"), src, msg)
 }

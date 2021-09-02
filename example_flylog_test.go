@@ -1,6 +1,8 @@
 package flylog_test
 
-import "github.com/flylog/flylog"
+import (
+	"github.com/flylog/flylog"
+)
 
 func Example() {
 	logs := flylog.GetLogger()
