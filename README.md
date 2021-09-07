@@ -1,5 +1,15 @@
 # Flylog
 
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/flylog/flylog?color=peru)](https://github.com/flylog/flylog/releases/latest)
+[![Released API docs](https://img.shields.io/badge/go-reference-blue?logo=go&logoColor=white)](https://pkg.go.dev/github.com/flylog/flylog)
+[![Build](https://img.shields.io/github/workflow/status/flylog/flylog/Go.svg)](#)
+[![Go Report Card](https://goreportcard.com/badge/github.com/flylog/flylog?color=pink)](https://goreportcard.com/report/github.com/flylog/flylog)
+[![Lines of code](https://img.shields.io/tokei/lines/github/flylog/flylog.svg?color=beige)](#)
+[![Downloads of releases](https://img.shields.io/github/downloads/flylog/flylog/total.svg?color=lavender)](https://github.com/flylog/flylog/releases/latest)
+[![Languages](https://img.shields.io/github/languages/top/flylog/flylog.svg?color=yellow)](#)
+[![GitHub go.mod Go version (subdirectory of monorepo)](https://img.shields.io/github/go-mod/go-version/flylog/flylog)](#)
+[![GPL3 licensed](https://img.shields.io/github/license/flylog/flylog.svg)](./LICENSE)
+
 Flylog 是一个简单快速的开发日志模块。支持同步/异步输出，缓存日志批量写入支持多种输出方式控制台，文件，tcp等。
 
 Flylog is a simple and fast development log module. Support synchronous / asynchronous output, cache log batch writing, and multiple output modes, console, file, TCP, etc.
